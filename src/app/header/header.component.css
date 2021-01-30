@@ -1,0 +1,18 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.matToolbar {
+    background-color: #0077b6;
+    height: 70px;
+}
+
+.textHeader {
+    margin-top: 15px;
+    margin-left: 5px;
+    /* color: #45087e; */
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Loto', sans-serif;
+}

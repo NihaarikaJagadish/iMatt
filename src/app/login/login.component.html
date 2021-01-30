@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+                <img src="../../assets/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3>Sign In to <strong>iMatt</strong></h3>
+                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
+                        </div>
+                        <form action="#" method="post">
+                            <mat-form-field appearance="outline" class="inputField">
+                                <mat-label>Enter Experiment ID</mat-label>
+                                <input type="text" matInput placeholder="EC-0001" required>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="inputField">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" required>
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+
+                            <input type="submit" value="Log In" class="btn text-white btn-block btn-primary" (click)="login()">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <app-header></app-header>
+<div>
+    <mat-card class="example-card mat-elevation-z12">
+        <img class="imageClass" mat-card-image src="../../assets/login.png" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <mat-form-field appearance="outline" class="inputField">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="inputField">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" class="inputButton" (click)="login()">LOGIN</button>
+        </mat-card-actions>
+    </mat-card>
+</div> -->

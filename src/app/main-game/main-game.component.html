@@ -1,0 +1,65 @@
+<!-- <app-header></app-header> -->
+
+<div class="home-wrap">
+    <div class="row">
+        <div class="row col-2 dealerRow">
+            <div class="col-1" *ngFor="let card of dealer[0]">
+                <img [src]="card">
+            </div>
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-4" style="margin-top: 50px;">
+            <mat-card class="example-card mat-elevation-z12">
+
+                <mat-card-content>
+                    <h3>Your Game Scores</h3>
+                    <countdown [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                    <p>Attempt Number : 3</p>
+                    <p>Total wins : 2</p>
+                    <p>Winning percentage : 55%</p>
+                    <p>Performance goal : 21</p>
+                    <p>Score of bust : 21</p>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-2">
+
+        </div>
+
+        <div class="col-2 deck">
+            <div>
+                <img src="../../assets/cards/BACKY.png" style="margin-right: 20px;">
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-6">
+                    <button mat-raised-button style="background-color: #fae1dd;">STAND</button>
+                </div>
+                <div class="col-6">
+                    <button mat-raised-button style="background-color: #fae1dd;" (click)="addCard()">HIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row col-10 firstRow">
+        <div class="col-1" *ngFor="let card of player[0]">
+            <img [src]="card">
+        </div>
+    </div>
+
+    <div class="row col-10 secondRow" *ngIf="totalCardsofPlayer > 10">
+        <div class="col-1" *ngFor="let card of player[1]">
+            <img [src]="card">
+        </div>
+    </div>
+    <div class="row col-10 thirdRow" *ngIf="totalCardsofPlayer > 20">
+        <div class="col-1" *ngFor="let card of player[2]">
+            <img [src]="card">
+        </div>
+    </div>
+
+</div>
