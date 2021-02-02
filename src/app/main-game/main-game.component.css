@@ -39,7 +39,7 @@ h3 {
     /* width: 200px; */
     /* height: 200px; */
     /* position: relative; */
-    top: 100px;
+    top: 10px;
     left: 0px;
     z-index: 1;
 }
@@ -48,7 +48,7 @@ h3 {
     /* width: 200px;
     height: 200px; */
     position: absolute;
-    top: 470px;
+    top: 420px;
     left: 40px;
     z-index: 2;
 }
@@ -57,7 +57,7 @@ h3 {
     /* width: 200px;
     height: 200px; */
     position: absolute;
-    top: 530px;
+    top: 480px;
     left: 60px;
     z-index: 2;
 }

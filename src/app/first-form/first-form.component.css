@@ -7,6 +7,10 @@
     transform: translate(-50%, -50%);
 }
 
+.div-wrap {
+    width: 500px;
+}
+
 p {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;

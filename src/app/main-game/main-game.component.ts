@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import Swal from 'sweetalert2';
-
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import { MainGame } from "../../services/mainGame.service";
 @Component({
   selector: 'app-main-game',
   templateUrl: './main-game.component.html',
@@ -13,12 +15,9 @@ export class MainGameComponent implements OnInit {
   player = [[],[],[]];
   dealer = [[]];
   totalCardsofPlayer;
-
   handGoal = 21;
   score = 21;
   limitOfCards = 30;
-  timeRestrictionForTotalGame = false;
-  timeRestrictionForEachDraw = false;
   timeForTotalGame = 3;
   timeForEachDraw = 0;
   repitionOfCards = true;
@@ -27,9 +26,16 @@ export class MainGameComponent implements OnInit {
   valueOfAce = 1;
   scoreObtainedPlayer = 0;
   scoreObtainedDealer = 0;
-  constructor() { }
+  constructor(private dialog:MatDialog,private gameService : MainGame) { }
 
   ngOnInit(): void {
+
+    // this.gameService.mainGame({"exID" : "EC-001"}).subscribe((res) => {
+    //   console.log(res);
+    // },(err) =>{
+    //   console.log(err);
+    // })
+
     for(var i = 0; i <this.numberOfCardsStartingDealer;i++){
       var item1 = this.firstLetter[Math.floor(Math.random() * this.firstLetter.length)];
       var item2 = this.lastLetter[Math.floor(Math.random() * this.lastLetter.length)];
@@ -46,6 +52,14 @@ export class MainGameComponent implements OnInit {
     this.totalCardsofPlayer = 2
 
 
+  }
+
+  openDialog(){
+    this.dialog.open(DialogComponent, {
+      data: {
+        animal: 'panda'
+      }
+    });
   }
 
   addCard(){

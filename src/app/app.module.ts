@@ -30,13 +30,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CountdownModule } from 'ngx-countdown';
 
+import {OverlayModule} from '@angular/cdk/overlay';
+import {PortalModule} from '@angular/cdk/portal';
+
 
 import { MainGameComponent } from './main-game/main-game.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { ConsentFormComponent } from './consent-form/consent-form.component';
 import { FirstFormComponent } from './first-form/first-form.component';
-import { TestComponentComponent } from './test-component/test-component.component';
+import { DialogComponent } from './main-game/dialog/dialog.component';
+import { TestComponent } from './test/test.component';
+import { WalkthroughModule } from 'ngx-walkthrough';
+import { MyOverlayComponent } from './test/my-overlay/my-overlay.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,9 @@ import { TestComponentComponent } from './test-component/test-component.componen
     LoginComponent,
     ConsentFormComponent,
     FirstFormComponent,
-    TestComponentComponent
+    DialogComponent,
+    TestComponent,
+    MyOverlayComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +84,10 @@ import { TestComponentComponent } from './test-component/test-component.componen
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CountdownModule
+    CountdownModule,
+    WalkthroughModule,
+    OverlayModule,
+    PortalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

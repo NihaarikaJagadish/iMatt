@@ -4,7 +4,7 @@ import { MainGameComponent } from './main-game/main-game.component';
 import { LoginComponent } from './login/login.component';
 import { ConsentFormComponent } from './consent-form/consent-form.component';
 import { FirstFormComponent } from './first-form/first-form.component';
-import { TestComponentComponent } from './test-component/test-component.component';
+import { TestComponent } from './test/test.component';
 
 
 const routes: Routes = [
@@ -12,9 +12,7 @@ const routes: Routes = [
   { path: "game", component:  MainGameComponent},
   { path: "consent", component:  ConsentFormComponent},
   { path: "firstForm", component:  FirstFormComponent},
-  { path: "new", component:  TestComponentComponent},
-
-
+  { path: "test", component:  TestComponent},
 ];
 
 @NgModule({
