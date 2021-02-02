@@ -11,7 +11,11 @@ export class FirstForm {
     constructor(private http: HttpClient) {}
 
     firstForm(data){
-        return this.http.post(`${this.baseUri}`, data)
+        return this.http.post(`${this.baseUri}`, { 
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }, data)
     }
     
 }

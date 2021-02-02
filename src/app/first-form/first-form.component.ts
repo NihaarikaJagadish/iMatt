@@ -14,11 +14,11 @@ export class FirstFormComponent implements OnInit {
   constructor(private router: Router, private formService : FirstForm) { }
 
   ngOnInit(): void {
-    // this.formService.firstForm({"exID" : "EC-001"}).subscribe((res) => {
-    //   console.log(res);
-    // },(err) =>{
-    //   console.log(err);
-    // })
+    this.formService.firstForm({"exID" : "EC-001"}).subscribe((res) => {
+      console.log(res);
+    },(err) =>{
+      console.log(err);
+    })
   }
 
   submit(){
