@@ -16,13 +16,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email:["",[Validators.required]],
+      username:["",[Validators.required]],
       password:["",[Validators.required]]
     })
+    console.log(this.loginForm)
   }
 
   getEmailError(){
-    if(this.loginForm.controls.email.hasError('required')){
+    if(this.loginForm.controls.username.hasError('required')){
       return 'Required'
     }else{
       return ''
@@ -39,30 +40,21 @@ export class LoginComponent implements OnInit {
 
   
   login(){ 
-    localStorage.setItem("user","true");
-    console.log(this.loginForm.controls.email.value);
-    Swal.fire({
-      text: "Login Successful",
-      icon: "success"
-    }).then(result =>{
+    this.loginService.login(this.loginForm.value).subscribe((res) => {
+      console.log(res);
+      Swal.fire({
+        text: "Login Successful",
+        icon: "success"
+      })  
       this.router.navigateByUrl("/consent");
-    });
-
-    // this.loginService.login(this.loginForm.value).subscribe((res) => {
-    //   console.log(res);
-    //   Swal.fire({
-    //     text: "Login Successful",
-    //     icon: "success"
-    //   })  
-    //   this.router.navigateByUrl("/consent");
-    //   localStorage.setItem("user","true");
-    //   localStorage.setItem("exID","EC-001")
-    // },(err) => {
-    //   Swal.fire({
-    //     text: err.error["message"],
-    //     icon: "error"
-    //   });
-    // })
+      localStorage.setItem("user", res["token"]);
+      localStorage.setItem("exID",res["user"]["id"])
+    },(err) => {
+      Swal.fire({
+        text: err.error["message"],
+        icon: "error"
+      });
+    })
     
   }
 

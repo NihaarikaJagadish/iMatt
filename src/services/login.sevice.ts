@@ -11,7 +11,8 @@ export class Login {
     constructor(private http: HttpClient) {}
 
     login(data){
-        return this.http.post(`${this.baseUri}`, data)
+        console.log(data)
+        return this.http.post(`${this.baseUri}`,data)
     }
     
 }

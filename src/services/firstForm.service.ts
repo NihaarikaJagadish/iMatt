@@ -7,15 +7,25 @@ import {Config} from '../config/Config';
 })
 export class FirstForm {
     baseUri = Config.firstFormUrl;
+    responseUrl = Config.responseUrl;
 
     constructor(private http: HttpClient) {}
 
-    firstForm(data){
-        return this.http.post(`${this.baseUri}`, { 
+    firstForm(){
+        return this.http.get(`${this.baseUri}`, { 
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "authorization": 'Token ' + localStorage.getItem("user")
             }
-        }, data)
+        })
     }
-    
+
+    submitResponse(data){
+        return this.http.post(`${this.responseUrl}`,data,{
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": 'Token ' + localStorage.getItem("user")
+            }
+        });
+    }
 }

@@ -15,8 +15,8 @@
                         <form [formGroup]="loginForm">
                             <mat-form-field appearance="outline" class="inputField">
                                 <mat-label>Enter Experiment ID</mat-label>
-                                <input type="text" matInput placeholder="EC-0001" formControlName="email" required>
-                                <mat-error *ngIf="loginForm.controls.email.invalid">{{getEmailError()}}</mat-error>
+                                <input type="text" matInput placeholder="EC-0001" formControlName="username" required>
+                                <mat-error *ngIf="loginForm.controls.username.invalid">{{getEmailError()}}</mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="outline" class="inputField">
                                 <mat-label>Enter your password</mat-label>
