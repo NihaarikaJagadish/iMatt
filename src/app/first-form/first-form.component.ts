@@ -42,6 +42,15 @@ export class FirstFormComponent implements OnInit {
   }
 
   submit(){
+    if(!this.firstForm.valid){
+      Swal.fire({
+        text: "Please fill all the fields",
+        icon: "warning"
+      }) 
+    }
+    else{
+
+    
     console.log(this.firstForm.value);
     var tempDict;
     this.responseList = [];
@@ -63,11 +72,12 @@ export class FirstFormComponent implements OnInit {
     },(err) => {
       console.log(err.error);
       Swal.fire({
-        text: "Duplicate Entries",
+        text: "Duplicate Response",
         icon: "warning"
       })  
     })
 
   }
+}
 
 }

@@ -15,7 +15,7 @@
 
                 <mat-card-content>
                     <h3>Your Game Scores</h3>
-                    <countdown [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                    <p> Time Left : <span><countdown style="font-weight: bold;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown></span></p>
                     <p>Attempt Number : 3</p>
                     <p>Total wins : 2</p>
                     <p>Winning percentage : 55%</p>

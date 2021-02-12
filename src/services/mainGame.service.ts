@@ -10,8 +10,13 @@ export class MainGame {
 
     constructor(private http: HttpClient) {}
 
-    mainGame(data){
-        return this.http.post(`${this.baseUri}`, data)
+    mainGame(){
+        return this.http.get(`${this.baseUri}`,{ 
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": 'Token ' + localStorage.getItem("user")
+            }
+        })
     }
     
 }

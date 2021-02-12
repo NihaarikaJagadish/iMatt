@@ -12,7 +12,7 @@ export class FirstForm {
     constructor(private http: HttpClient) {}
 
     firstForm(){
-        return this.http.get(`${this.baseUri}`, { 
+        return this.http.get(`${this.baseUri}?name=Type 1`, { 
             headers: {
                 "Content-Type": "application/json",
                 "authorization": 'Token ' + localStorage.getItem("user")

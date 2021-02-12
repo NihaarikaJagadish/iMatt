@@ -40,9 +40,10 @@ import { LoginComponent } from './login/login.component';
 import { ConsentFormComponent } from './consent-form/consent-form.component';
 import { FirstFormComponent } from './first-form/first-form.component';
 import { DialogComponent } from './main-game/dialog/dialog.component';
-import { TestComponent } from './test/test.component';
 import { WalkthroughModule } from 'ngx-walkthrough';
-import { MyOverlayComponent } from './test/my-overlay/my-overlay.component';
+import { ButtonTypesExampleComponent } from './button-types-example/button-types-example.component';
+import { MyOverlayComponent } from './button-types-example/my-overlay/my-overlay.component';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { MyOverlayComponent } from './test/my-overlay/my-overlay.component';
     ConsentFormComponent,
     FirstFormComponent,
     DialogComponent,
-    TestComponent,
+    ButtonTypesExampleComponent,
     MyOverlayComponent
   ],
   imports: [

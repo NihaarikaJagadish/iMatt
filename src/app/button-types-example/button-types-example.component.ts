@@ -1,42 +1,57 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, AfterViewInit, OnInit, ViewEncapsulation} from '@angular/core';
 import Swal from 'sweetalert2';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+// import { DialogComponent } from './dialog/dialog.component';
 import { MainGame } from "../../services/mainGame.service";
+import { OverlayServiceService } from './overlay-service.service'
 @Component({
-  selector: 'app-main-game',
-  templateUrl: './main-game.component.html',
-  styleUrls: ['./main-game.component.css'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-button-types-example',
+  templateUrl: './button-types-example.component.html',
+  styleUrls: ['./button-types-example.component.css']
 })
-export class MainGameComponent implements OnInit {
+export class ButtonTypesExampleComponent implements AfterViewInit, OnInit {
+
+  isActive1 = true;
+  isActive2 = false;
+
   firstLetter = ["2","3","4","5","6","7","8","9","10","A","J","K","Q"];
   lastLetter = ["C","D","H","S"];
   player = [[],[],[]];
   dealer = [[]];
   totalCardsofPlayer;
-  handGoal = 21;
-  score = 21;
-  limitOfCards = 30;
-  timeForTotalGame = 30;
-  timeForEachDraw = 0;
-  repitionOfCards = true;
-  numberOfCardsStartingDealer = 1;
-  numberOfCardsStartingPlayer = 2;
+  handGoal:any;
+  score:any;
+  limitOfCards:any;
+  timeForTotalGame = 0;
+  timeForEachDraw:any;
+  repitionOfCards:any;
+  numberOfCardsStartingDealer:any;
+  numberOfCardsStartingPlayer:any;
   valueOfAce = 1;
   scoreObtainedPlayer = 0;
   scoreObtainedDealer = 0;
-  constructor(private dialog:MatDialog,private gameService : MainGame) { }
+  constructor(private dialog:MatDialog,private gameService : MainGame,private service: OverlayServiceService) { }
 
   ngOnInit(): void {
 
-    // this.gameService.mainGame({"exID" : "EC-001"}).subscribe((res) => {
-    //   console.log(res);
-    // },(err) =>{
-    //   console.log(err);
-    // })
-
-    for(var i = 0; i <this.numberOfCardsStartingDealer;i++){
+    this.gameService.mainGame().subscribe((res) => {
+      console.log(res);
+    var result = res[0];
+    this.handGoal = result["hand_goal"];
+    this.limitOfCards = result["card_limit"];
+    this.timeForTotalGame = result["game_time_limit"];
+    if(this.timeForTotalGame <0){
+      this.timeForEachDraw = 0;
+    }
+    this.timeForEachDraw = result["round_time_limit"];
+    if(this.timeForEachDraw <0){
+      this.timeForEachDraw = 0;
+    }
+    this.repitionOfCards = result["repeat_cards"];
+    this.score = result["score_to_reach"];
+    this.numberOfCardsStartingDealer = result["dealer_visible_deck_count"];
+    this.numberOfCardsStartingPlayer = result["starting_deck_count"];
+    for(var i = 0; i <this.numberOfCardsStartingDealer ;i++){
       var item1 = this.firstLetter[Math.floor(Math.random() * this.firstLetter.length)];
       var item2 = this.lastLetter[Math.floor(Math.random() * this.lastLetter.length)];
       var finalString = "../../assets/cards/" + item1 + item2 + ".png";
@@ -49,17 +64,31 @@ export class MainGameComponent implements OnInit {
       var finalString = "../../assets/cards/" + item1 + item2 + ".png";
       this.player[0].push(finalString);
     }
-    this.totalCardsofPlayer = 2
+    this.totalCardsofPlayer = this.numberOfCardsStartingPlayer;
+    },(err) =>{
+      console.log(err);
+    })
+
+    
 
 
   }
 
+  ngAfterViewInit() {
+    this.service.showOverlay(1);
+  }
+
+  restartOnboarding() {
+    this.service.showOverlay(1);
+  }
+
   openDialog(){
-    this.dialog.open(DialogComponent, {
-      data: {
-        animal: 'panda'
-      }
-    });
+    console.log("Hello");
+    // this.dialog.open(DialogComponent, {
+    //   data: {
+    //     animal: 'panda'
+    //   }
+    // });
   }
 
   addCard(){
@@ -81,8 +110,7 @@ export class MainGameComponent implements OnInit {
   }
 
   totalTimeEvent(event){
-    console.log(event);
-    if(event["action"] == "done"){
+    if(event["action"] == "done" && this.timeForTotalGame > 0){
       Swal.fire({
         text: "You have used up all the time alloted!!",
         icon: 'warning',
@@ -91,9 +119,6 @@ export class MainGameComponent implements OnInit {
         confirmButtonColor: 'red'
       }).then(result => {
       })
-
     }
-
   }
-
 }
