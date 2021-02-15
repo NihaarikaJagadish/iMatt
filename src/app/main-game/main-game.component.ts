@@ -3,10 +3,24 @@ import Swal from 'sweetalert2';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MainGame } from "../../services/mainGame.service";
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
 @Component({
   selector: 'app-main-game',
   templateUrl: './main-game.component.html',
   styleUrls: ['./main-game.component.css'],
+  animations: [
+    trigger('flipState', [
+      state('active', style({
+        transform: 'rotateY(179deg)'
+      })),
+      state('inactive', style({
+        transform: 'rotateY(0)'
+      })),
+      transition('active => inactive', animate('500ms ease-out')),
+      transition('inactive => active', animate('500ms ease-in'))
+    ])
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class MainGameComponent implements OnInit {
@@ -26,6 +40,12 @@ export class MainGameComponent implements OnInit {
   valueOfAce = 1;
   scoreObtainedPlayer = 0;
   scoreObtainedDealer = 0;
+
+  flip: string = 'inactive';
+
+  toggleFlip() {
+    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+  }
   constructor(private dialog:MatDialog,private gameService : MainGame) { }
 
   ngOnInit(): void {
@@ -41,6 +61,7 @@ export class MainGameComponent implements OnInit {
       var item2 = this.lastLetter[Math.floor(Math.random() * this.lastLetter.length)];
       var finalString = "../../assets/cards/" + item1 + item2 + ".png";
       this.dealer[0].push(finalString);
+      this.scoreObtainedDealer = this.scoreObtainedDealer + Number(item1);
     }
     this.dealer[0].push("../../assets/cards/BLANK.png");
     for(var i = 0; i <this.numberOfCardsStartingPlayer;i++){
@@ -49,7 +70,8 @@ export class MainGameComponent implements OnInit {
       var finalString = "../../assets/cards/" + item1 + item2 + ".png";
       this.player[0].push(finalString);
     }
-    this.totalCardsofPlayer = 2
+    this.totalCardsofPlayer = 2;
+    this.openDialog();
 
 
   }
@@ -58,8 +80,15 @@ export class MainGameComponent implements OnInit {
     this.dialog.open(DialogComponent, {
       data: {
         animal: 'panda'
-      }
+      },
+      
     });
+  }
+  advice(){
+    console.log("advice pressed");
+  }
+  help(){
+    console.log("advice pressed");
   }
 
   addCard(){

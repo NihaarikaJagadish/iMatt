@@ -2,51 +2,191 @@
 
 <div class="home-wrap">
     <div class="row">
-        <div class="row col-2 dealerRow">
+        <div class="col-3">
+            <button class="advice" (click)="advice()">
+                <mat-icon>help</mat-icon> ADVICE</button>
+        </div>
+        <div class="col-6">
+
+        </div>
+        <div class="col-3">
+            <button class="help" (click)="help()">
+                <mat-icon>info</mat-icon> HELP</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+
+            <!-- <table border="1" style="border-color: white; color: white; margin-top: 30px; margin-left: 80px;">
+                <th>
+                    Game Score
+                </th>
+                <th>
+                    Game Score
+                </th>
+                <tr>
+                    <td>
+                        Time Left :
+                    </td>
+                    <td>
+                        <countdown style="font-weight: bold;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Attempt Number :
+                    </td>
+                    <td>
+                        3
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Total wins :
+                    </td>
+                    <td>
+                        2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Winning percentage :
+                    </td>
+                    <td>
+                        50%
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Performance Goal :
+                    </td>
+                    <td>
+                        21
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Score of Bust :
+                    </td>
+                    <td>
+                        21
+                    </td>
+                </tr>
+            </table> -->
+
+
+
+        </div>
+        <div class="col-1" style="margin-top: 80px;">
+            <div class="circle">{{scoreObtainedDealer}}</div>
+            <div>
+                <p class="DealerWord">Dealer</p>
+            </div>
+
+        </div>
+        <div class="row col-3 dealerRow">
             <div class="col-1" *ngFor="let card of dealer[0]">
+                <img [src]="card">
+            </div>
+        </div>
+        <div class="col-5">
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-2">
+
+        </div>
+        <div class="col-3">
+            <button (click)="addCard()" mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 100px; margin-top: 20px; font-size: 30px;">
+                <mat-icon>library_add</mat-icon>
+                Hit
+                 </button>
+
+        </div>
+        <div class=" outer col-2">
+            <div class="coin">
+                <countdown style="font-weight: bold; color: white; font-weight: bold; margin-top: 20px; font-size: 30px;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                <!-- <p style="color: white; font-weight: bold; margin-top: 20px; font-size: 30px;">21</p> -->
+            </div>
+
+        </div>
+        <div class="col-3">
+            <button mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 140px; margin-top: 20px; font-size: 30px;">
+                <mat-icon>not_interested</mat-icon>
+                Stand
+                 </button>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-4">
+
+        </div>
+        <div class="col-1" style="margin-top: 80px;">
+            <div class="circle">{{scoreObtainedPlayer}}</div>
+            <div>
+                <p class="DealerWord">Player</p>
+            </div>
+
+        </div>
+        <div class="row col-5 ">
+            <div class="col-1 playerRow" *ngFor="let card of player[0]">
                 <img [src]="card">
             </div>
         </div>
         <div class="col-2">
 
         </div>
-        <div class="col-4" style="margin-top: 50px;">
-            <mat-card class="example-card mat-elevation-z12">
+    </div>
+    <div class="row" style="margin-top: -170px; margin-left: 15px;">
+        <div class="col-4">
 
-                <mat-card-content>
-                    <h3>Your Game Scores</h3>
-                    <p> Time Left : <span><countdown style="font-weight: bold;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown></span></p>
-                    <p>Attempt Number : 3</p>
-                    <p>Total wins : 2</p>
-                    <p>Winning percentage : 55%</p>
-                    <p>Performance goal : 21</p>
-                    <p>Score of bust : 21</p>
-                    <!-- <button mat-button (click)="openDialog()"> Click</button> -->
+        </div>
+        <div class="col-1" style="margin-top: 80px;">
 
-                </mat-card-content>
-            </mat-card>
+        </div>
+        <div class="row col-5 ">
+            <div class="col-1 playerRow" *ngFor="let card of player[1]">
+                <img [src]="card">
+            </div>
         </div>
         <div class="col-2">
 
         </div>
+    </div>
 
-        <div class="col-2 deck">
-            <div>
-                <img src="../../assets/cards/BACKY.png" style="margin-right: 20px;">
+    <div class="row" style="margin-top: -170px; margin-left: 35px;">
+        <div class="col-4">
+
+        </div>
+        <div class="col-1" style="margin-top: 80px;">
+
+        </div>
+        <div class="row col-5 ">
+            <div class="col-1 playerRow" *ngFor="let card of player[2]">
+                <img [src]="card">
             </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col-6">
-                    <button mat-raised-button style="background-color: #fae1dd;">STAND</button>
-                </div>
-                <div class="col-6">
-                    <button mat-raised-button style="background-color: #fae1dd;" (click)="addCard()">HIT</button>
-                </div>
-            </div>
+        </div>
+        <div class="col-2">
+
         </div>
     </div>
 
+    <!-- <div class="tp-wrapper">
+        <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
+            <div class="tp-box__side tp-box__front">Front
+            </div>
+            <div class="tp-box__side tp-box__back">Back
+            </div>
+        </div>
+    </div> -->
 
-    <div class="row col-10 firstRow">
+
+    <!-- <div class="row col-10 firstRow">
         <div class="col-1" *ngFor="let card of player[0]">
             <img [src]="card">
         </div>
@@ -61,6 +201,6 @@
         <div class="col-1" *ngFor="let card of player[2]">
             <img [src]="card">
         </div>
-    </div>
+    </div> -->
 
 </div>
