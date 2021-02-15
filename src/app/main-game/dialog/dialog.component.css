@@ -1,0 +1,12 @@
+::ng-deep .mat-tab-header {
+    display: none !important;
+}
+
+.dial {
+    max-width: 500px;
+}
+
+.buttons {
+    background-color: #1f7c51;
+    color: white;
+}

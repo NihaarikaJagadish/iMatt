@@ -10,16 +10,16 @@ export class OverlayServiceService {
   private latestShownOverlayId = -1;
 
   public showOverlay(id: number) {
-    // console.log(this.overlays);
+    console.log(this.overlays);
     const overlay = this.overlays.get(id);
-    // console.log('found' + overlay);
+    console.log('found' + overlay);
     if (overlay) {
       overlay.showOverlay();
     }
   }
 
   public registerOverlay(overlay: MyOverlayComponent) {
-    // console.log(overlay);
+    console.log(overlay);
     this.overlays.set(overlay.id, overlay)
   }
 

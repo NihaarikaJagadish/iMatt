@@ -4,7 +4,7 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MainGame } from "../../services/mainGame.service";
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { OverlayServiceService } from './overlay-service.service';
 @Component({
   selector: 'app-main-game',
   templateUrl: './main-game.component.html',
@@ -43,12 +43,22 @@ export class MainGameComponent implements OnInit {
 
   flip: string = 'inactive';
 
+  isActive1 = true;
+  isActive2 = false;
+
+
+ ngAfterViewInit() {
+  //  this.service.showOverlay(1);
+ }
+
   toggleFlip() {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
-  constructor(private dialog:MatDialog,private gameService : MainGame) { }
+  constructor(private dialog:MatDialog,private gameService : MainGame, private service: OverlayServiceService) { }
 
   ngOnInit(): void {
+  //  this.service.showOverlay(1);
+
 
     // this.gameService.mainGame({"exID" : "EC-001"}).subscribe((res) => {
     //   console.log(res);
@@ -61,7 +71,7 @@ export class MainGameComponent implements OnInit {
       var item2 = this.lastLetter[Math.floor(Math.random() * this.lastLetter.length)];
       var finalString = "../../assets/cards/" + item1 + item2 + ".png";
       this.dealer[0].push(finalString);
-      this.scoreObtainedDealer = this.scoreObtainedDealer + Number(item1);
+      this.scoreObtainedDealer = this.scoreObtainedDealer + Number(this.charToNumber(item1));
     }
     this.dealer[0].push("../../assets/cards/BLANK.png");
     for(var i = 0; i <this.numberOfCardsStartingPlayer;i++){
@@ -69,6 +79,7 @@ export class MainGameComponent implements OnInit {
       var item2 = this.lastLetter[Math.floor(Math.random() * this.lastLetter.length)];
       var finalString = "../../assets/cards/" + item1 + item2 + ".png";
       this.player[0].push(finalString);
+      this.scoreObtainedPlayer = this.scoreObtainedPlayer + Number(this.charToNumber(item1));
     }
     this.totalCardsofPlayer = 2;
     this.openDialog();
@@ -77,18 +88,38 @@ export class MainGameComponent implements OnInit {
   }
 
   openDialog(){
-    this.dialog.open(DialogComponent, {
+    const dialRef = this.dialog.open(DialogComponent, {
       data: {
         animal: 'panda'
       },
+      backdropClass: 'my-backdrop-dialog'
       
     });
+
+    dialRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.service.showOverlay(1);
+    });
+
   }
   advice(){
     console.log("advice pressed");
   }
   help(){
     console.log("advice pressed");
+    this.openDialog();
+  }
+
+  charToNumber(ch){
+    if(ch == 'A'){
+      return 1;
+    }
+    else if(ch == 'J' || ch == 'K' || ch == 'Q'){
+      return 11;
+    }
+    else{
+      return ch;
+    }
   }
 
   addCard(){

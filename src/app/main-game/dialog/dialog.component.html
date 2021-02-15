@@ -1,15 +1,39 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-    My favorite animal is:
-    <ul>
-        <li>
-            <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
-        </li>
-        <li>
-            <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
-        </li>
-        <li>
-            <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
-        </li>
-    </ul>
+<div class="dial">
+    <mat-tab-group [selectedIndex]="selectedIndex" style="margin: 0px;">
+        <mat-tab label="First">
+            <h1>
+                How to Play Blackjack Online
+            </h1>
+            <p>
+                Blackjack is an enormously popular card game, with millions of fans playing it online across the globe. One of the main reasons for its popularity is that blackjack is that it’s so simple to play. This is how you can learn how to play online blackjack
+                in just six steps:
+
+            </p>
+        </mat-tab>
+        <mat-tab label="Second">
+            <h4>Step 1: receive your cards</h4>
+            <p> The dealer will give you two blackjack cards and show one of his cards.</p>
+            <h4>Step 2: decide if you want to double your bet</h4>
+            <p>You can double your bet any time before you hit or stand and split your bet if you get two cards of the same value. </p>
+            <h4>Step 3: consider if you want to ‘hit’</h4>
+            <p>You have an option to add more blackjack cards by choosing 'hit', but you lose automatically if your value of cards exceeds 21.</p>
+        </mat-tab>
+        <mat-tab label="Third">
+            <h4>
+                Step 4: click ‘stand’
+            </h4>
+            <p>Click 'stand' when you are ready to play your hand.</p>
+            <h4>Step 5: learn the dealer’s hand</h4>
+            <p>The dealer will reveal his hidden blackjack card and must always hit if they have 16 or lower. They will stop hitting if they have 17 or more.</p>
+            <h4>Step 6: win or lose</h4>
+            <p>You win when the combined value of your cards is greater than that of the dealer. You lose if you have a lower score than the dealer, or if the total of your cards exceeds 21.</p>
+        </mat-tab>
+    </mat-tab-group>
+    <button *ngIf="selectedIndex != 0" mat-raised-button class="buttons" (click)="prevButton()" style="float: left;"> 
+    <mat-icon>chevron_left</mat-icon>Back
+  </button>
+    <button mat-raised-button class="buttons" (click)="nextButton()" style="float: right;">Next
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+
 </div>

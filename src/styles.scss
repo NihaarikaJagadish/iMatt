@@ -18,15 +18,20 @@ body {
 
 .elevate#onboarding-active {
     @include mat-elevation-transition;
-    @include mat-elevation(8);
-    z-index: 10000;
+    @include mat-elevation(12);
+    z-index: 70000;
 }
 
 .elevate {
-    background: white;
+    // background: white;
     position: relative;
+    z-index: 10000;
 }
 
 .my-backdrop {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(1, 1, 1, 0.1);
+}
+
+.my-backdrop-dialog {
+    background: rgba(0, 0, 0, 0.8);
 }

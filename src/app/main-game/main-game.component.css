@@ -226,3 +226,8 @@ section {
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
+
+.button-row button,
+.button-row a {
+    margin-right: 8px;
+}

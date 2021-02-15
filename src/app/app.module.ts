@@ -41,9 +41,10 @@ import { ConsentFormComponent } from './consent-form/consent-form.component';
 import { FirstFormComponent } from './first-form/first-form.component';
 import { DialogComponent } from './main-game/dialog/dialog.component';
 import { WalkthroughModule } from 'ngx-walkthrough';
-import { ButtonTypesExampleComponent } from './button-types-example/button-types-example.component';
-import { MyOverlayComponent } from './button-types-example/my-overlay/my-overlay.component';
-
+import { CarouselComponent } from './main-game/dialog/carousel/carousel.component';
+import { CarouselItemDirective } from '../app/main-game/dialog/carousel/carousel-item.directive';
+import { CarouselItemElementDirective } from '../app/main-game/dialog/carousel/carousel-item-element.directive';
+import { MyOverlayComponent } from './main-game/my-overlay/my-overlay.component';
 
 @NgModule({
   declarations: [
@@ -54,8 +55,9 @@ import { MyOverlayComponent } from './button-types-example/my-overlay/my-overlay
     ConsentFormComponent,
     FirstFormComponent,
     DialogComponent,
-    ButtonTypesExampleComponent,
-    MyOverlayComponent
+    CarouselComponent,
+    CarouselItemDirective, 
+    CarouselItemElementDirective, MyOverlayComponent 
   ],
   imports: [
     BrowserModule,

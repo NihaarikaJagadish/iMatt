@@ -2,12 +2,14 @@ import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, Input, OnDestr
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { CdkPortal } from '@angular/cdk/portal';
 import { OverlayServiceService } from '../overlay-service.service'
+
 @Component({
   selector: 'app-my-overlay',
   templateUrl: './my-overlay.component.html',
   styleUrls: ['./my-overlay.component.css']
 })
 export class MyOverlayComponent implements OnInit, OnDestroy {
+
   @Input() connectedTo: any;
   @Input() text: string;
   @Input() get id(): number {
