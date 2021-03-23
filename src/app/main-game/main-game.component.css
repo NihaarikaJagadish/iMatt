@@ -12,6 +12,42 @@
     position: absolute;
 }
 
+@media screen and (min-width:1024px) {
+    #mobile {
+        display: none;
+    }
+    #laptop {
+        display: block;
+    }
+    #mobile1 {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1023px) and ( min-width:800px) {
+    #mobile {
+        display: block;
+    }
+    #laptop {
+        display: none;
+    }
+    #mobile1 {
+        display: none;
+    }
+}
+
+@media screen and (max-width:800px) {
+    #mobile {
+        display: none;
+    }
+    #laptop {
+        display: none;
+    }
+    #mobile1 {
+        display: block;
+    }
+}
+
 .example-card {
     max-width: 300px;
     position: absolute;

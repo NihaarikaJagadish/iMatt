@@ -1,225 +1,516 @@
-<!-- <app-header></app-header> -->
-
 <div class="home-wrap">
-    <div class="row">
-        <div class="col-3">
-            <button #adviceButton class="advice" (click)="advice()">
+    <div id="laptop">
+        <div class="row">
+            <div class="col-3">
+                <button #adviceButton class="advice" (click)="advice()">
                 <mat-icon>help</mat-icon> ADVICE</button>
-            <app-my-overlay [connectedTo]="adviceButton" text="Use this button to get an advice in the middle of the game. " id="1"></app-my-overlay>
+                <app-my-overlay [connectedTo]="adviceButton" text="Use this button to get an advice in the middle of the game. " id="1"></app-my-overlay>
 
-        </div>
-        <div class="col-6">
+            </div>
+            <div class="col-6">
 
-        </div>
-        <div class="col-3">
-            <button #helpButton class="help" (click)="help()">
+            </div>
+            <div class="col-3">
+                <button #helpButton class="help" (click)="help()">
                 <mat-icon>info</mat-icon> HELP</button>
-            <app-my-overlay [connectedTo]="helpButton" text="Use this button to get help or to read the rules in the middle of the game. " id="2"></app-my-overlay>
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-
-            <!-- <table border="1" style="border-color: white; color: white; margin-top: 30px; margin-left: 80px;">
-                <th>
-                    Game Score
-                </th>
-                <th>
-                    Game Score
-                </th>
-                <tr>
-                    <td>
-                        Time Left :
-                    </td>
-                    <td>
-                        <countdown style="font-weight: bold;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Attempt Number :
-                    </td>
-                    <td>
-                        3
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Total wins :
-                    </td>
-                    <td>
-                        2
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Winning percentage :
-                    </td>
-                    <td>
-                        50%
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Performance Goal :
-                    </td>
-                    <td>
-                        21
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Score of Bust :
-                    </td>
-                    <td>
-                        21
-                    </td>
-                </tr>
-            </table> -->
-
-
-
-        </div>
-        <div class="col-1" style="margin-top: 80px;">
-            <div #dealerScore class="circle">{{scoreObtainedDealer}}</div>
-            <app-my-overlay [connectedTo]="dealerScore" text="Displays the score obtained by the Dealer." id="3"></app-my-overlay>
-
-            <div>
-                <p class="DealerWord">Dealer</p>
-            </div>
-
-        </div>
-        <div class="row col-3 dealerRow">
-            <div class="col-1" *ngFor="let card of dealer[0]">
-                <img #dealerHighlight [src]="card">
-                <app-my-overlay [connectedTo]="dealerHighlight" text="This is the Dealer Deck." id="4"></app-my-overlay>
+                <app-my-overlay [connectedTo]="helpButton" text="Use this button to get help or to read the rules in the middle of the game. " id="2"></app-my-overlay>
 
             </div>
         </div>
-        <div class="col-5">
+        <div class="row">
+            <div class="col-4">
 
+                 <table border="1" style="border-color: white; color: white; margin-top: 30px; margin-left: 80px;">
+                    <th>
+                        Game Score
+                    </th>
+                    <th>
+                        Game Score
+                    </th>
+                    <tr>
+                        <td>
+                            Time Left :
+                        </td>
+                        <td>
+                            <countdown style="font-weight: bold;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Attempt Number :
+                        </td>
+                        <td>
+                            3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total wins :
+                        </td>
+                        <td>
+                            2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Winning percentage :
+                        </td>
+                        <td>
+                            50%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Performance Goal :
+                        </td>
+                        <td>
+                            21
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Score of Bust :
+                        </td>
+                        <td>
+                            21
+                        </td>
+                    </tr>
+                </table>
+
+
+
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
+                <div #dealerScore class="circle">{{scoreObtainedDealer}}</div>
+                <app-my-overlay [connectedTo]="dealerScore" text="Displays the score obtained by the Dealer." id="3"></app-my-overlay>
+
+                <div>
+                    <p class="DealerWord">Dealer</p>
+                </div>
+
+            </div>
+            <div class="row col-5 dealerRow">
+                <div class="col-1" *ngFor="let card of dealer[0]">
+                    <img #dealerHighlight [src]="card">
+                    <app-my-overlay [connectedTo]="dealerHighlight" text="This is the Dealer Deck." id="4"></app-my-overlay>
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
         </div>
-    </div>
 
-    <div class="row" style="margin-top: 30px;">
-        <div class="col-2">
+        <div class="row" style="margin-top: -180px; margin-left: 15px;">
+            <div class="col-4">
 
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
+
+            </div>
+            <div class="row col-5 dealerRow">
+                <div class="col-1" *ngFor="let card of dealer[1]" >
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
         </div>
-        <div class="col-3">
-            <button #hitButton (click)="addCard()" mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 100px; margin-top: 20px; font-size: 30px;">
+
+        <div class="row" style="margin-top: -180px; margin-left: 35px;">
+            <div class="col-4">
+
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
+
+            </div>
+            <div class="row col-5 dealerRow">
+                <div class="col-1" *ngFor="let card of dealer[2]" >
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 230px;">
+            <div class="col-2">
+
+            </div>
+            <div class="col-3">
+                <button #hitButton (click)="addCard()" mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 100px; margin-top: 20px; font-size: 30px;">
                 <mat-icon>library_add</mat-icon>
                 Hit
                  </button>
-            <app-my-overlay [connectedTo]="hitButton" text="Press this button to draw a card." id="5"></app-my-overlay>
+                <app-my-overlay [connectedTo]="hitButton" text="Press this button to draw a card." id="5"></app-my-overlay>
 
 
-        </div>
-        <div class=" outer col-2">
-            <div #countDownHighlight class="coin">
-                <countdown style="font-weight: bold; color: white; font-weight: bold; margin-top: 20px; font-size: 30px;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
-                <!-- <p style="color: white; font-weight: bold; margin-top: 20px; font-size: 30px;">21</p> -->
             </div>
-            <app-my-overlay [connectedTo]="countDownHighlight" text="The time left to finish the game." id="6"></app-my-overlay>
+            <div class=" outer col-2">
+                <div #countDownHighlight class="coin">
+                    <countdown style="font-weight: bold; color: white; font-weight: bold; margin-top: 20px; font-size: 30px;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                    <!-- <p style="color: white; font-weight: bold; margin-top: 20px; font-size: 30px;">21</p> -->
+                </div>
+                <app-my-overlay [connectedTo]="countDownHighlight" text="The time left to finish the game." id="6"></app-my-overlay>
 
 
-        </div>
-        <div class="col-3">
-            <button #standButton mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 140px; margin-top: 20px; font-size: 30px;">
+            </div>
+            <div class="col-3">
+                <button #standButton mat-raised-button (click)="standFunc()" style="background-color: #32ba3e; color: white; height: 50px; width: 140px; margin-top: 20px; font-size: 30px;">
                 <mat-icon>not_interested</mat-icon>
                 Stand
                  </button>
-            <app-my-overlay [connectedTo]="standButton" text="Press this button to finish playing." id="7"></app-my-overlay>
+                <app-my-overlay [connectedTo]="standButton" text="Press this button to finish playing." id="7"></app-my-overlay>
 
 
-        </div>
-
-    </div>
-
-    <div class="row" style="margin-top: 10px;">
-        <div class="col-4">
-
-        </div>
-        <div class="col-1" style="margin-top: 80px;">
-            <div #playerScorehighlight class="circle">{{scoreObtainedPlayer}}</div>
-            <app-my-overlay [connectedTo]="playerScorehighlight" text="Displays the score obtained by the Player." id="8"></app-my-overlay>
-
-
-            <div>
-                <p class="DealerWord">Player</p>
             </div>
 
         </div>
-        <div class="row col-5 ">
-            <div class="col-1 playerRow" *ngFor="let card of player[0]">
-                <img #playerHighlight [src]="card">
-                <app-my-overlay [connectedTo]="playerHighlight" text="This is the player Deck." id="9"></app-my-overlay>
+
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-4">
+
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
+                <div #playerScorehighlight class="circle">{{scoreObtainedPlayer}}</div>
+                <app-my-overlay [connectedTo]="playerScorehighlight" text="Displays the score obtained by the Player." id="8"></app-my-overlay>
+
+
+                <div>
+                    <p class="DealerWord">Player</p>
+                </div>
+
+            </div>
+            <div class="row col-5 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[0]">
+                    <img #playerHighlight [src]="card">
+                    <app-my-overlay [connectedTo]="playerHighlight" text="This is the player Deck." id="9"></app-my-overlay>
+
+                </div>
+            </div>
+            <div class="col-2">
 
             </div>
         </div>
-        <div class="col-2">
+        <div class="row" style="margin-top: -170px; margin-left: 15px;">
+            <div class="col-4">
 
-        </div>
-    </div>
-    <div class="row" style="margin-top: -170px; margin-left: 15px;">
-        <div class="col-4">
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
 
-        </div>
-        <div class="col-1" style="margin-top: 80px;">
+            </div>
+            <div class="row col-5 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[1]">
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-2">
 
-        </div>
-        <div class="row col-5 ">
-            <div class="col-1 playerRow" *ngFor="let card of player[1]">
-                <img [src]="card">
             </div>
         </div>
-        <div class="col-2">
 
-        </div>
-    </div>
+        <div class="row" style="margin-top: -170px; margin-left: 35px;">
+            <div class="col-4">
 
-    <div class="row" style="margin-top: -170px; margin-left: 35px;">
-        <div class="col-4">
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
 
-        </div>
-        <div class="col-1" style="margin-top: 80px;">
+            </div>
+            <div class="row col-5 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[2]">
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-2">
 
-        </div>
-        <div class="row col-5 ">
-            <div class="col-1 playerRow" *ngFor="let card of player[2]">
-                <img [src]="card">
             </div>
         </div>
-        <div class="col-2">
-
-        </div>
     </div>
 
-    <!-- <div class="tp-wrapper">
-        <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
-            <div class="tp-box__side tp-box__front">Front
+
+    <div id="mobile">
+        <div class="row">
+            <div class="col-3">
+                <button #adviceButton class="advice" (click)="advice()">
+                <mat-icon>help</mat-icon> ADVICE</button>
+                <app-my-overlay [connectedTo]="adviceButton" text="Use this button to get an advice in the middle of the game. " id="1"></app-my-overlay>
             </div>
-            <div class="tp-box__side tp-box__back">Back
+            <div class="col-6">
+
+            </div>
+            <div class="col-3">
+                <button #helpButton class="help" (click)="help()">
+                <mat-icon>info</mat-icon> HELP</button>
+                <app-my-overlay [connectedTo]="helpButton" text="Use this button to get help or to read the rules in the middle of the game. " id="2"></app-my-overlay>
+
             </div>
         </div>
-    </div> -->
+        <div class="row">
+            <div class="col-3">
 
 
-    <!-- <div class="row col-10 firstRow">
-        <div class="col-1" *ngFor="let card of player[0]">
-            <img [src]="card">
+
+
+            </div>
+            <div class="col-2" style="margin-top: 80px;">
+                <div #dealerScore class="circle">{{scoreObtainedDealer}}</div>
+                <app-my-overlay [connectedTo]="dealerScore" text="Displays the score obtained by the Dealer." id="3"></app-my-overlay>
+
+                <div>
+                    <p class="DealerWord">Dealer</p>
+                </div>
+
+            </div>
+            <div class="row col-3 dealerRow">
+                <div class="col-1" *ngFor="let card of dealer[0]">
+                    <img #dealerHighlight [src]="card">
+                    <app-my-overlay [connectedTo]="dealerHighlight" text="This is the Dealer Deck." id="4"></app-my-overlay>
+
+                </div>
+            </div>
+            <div class="col-5">
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-2">
+
+            </div>
+            <div class="col-3">
+                <button #hitButton (click)="addCard()" mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 100px; margin-top: 20px; font-size: 30px;">
+                <mat-icon>library_add</mat-icon>
+                Hit
+                 </button>
+                <app-my-overlay [connectedTo]="hitButton" text="Press this button to draw a card." id="5"></app-my-overlay>
+
+
+            </div>
+            <div class=" outer col-3">
+                <div #countDownHighlight class="coin">
+                    <countdown style="font-weight: bold; color: white; font-weight: bold; margin-top: 20px; font-size: 30px;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                    <!-- <p style="color: white; font-weight: bold; margin-top: 20px; font-size: 30px;">21</p> -->
+                </div>
+                <app-my-overlay [connectedTo]="countDownHighlight" text="The time left to finish the game." id="6"></app-my-overlay>
+
+
+            </div>
+            <div class="col-3">
+                <button #standButton mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 140px; margin-top: 20px; font-size: 30px;">
+                <mat-icon>not_interested</mat-icon>
+                Stand
+                 </button>
+                <app-my-overlay [connectedTo]="standButton" text="Press this button to finish playing." id="7"></app-my-overlay>
+
+
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-3">
+
+            </div>
+            <div class="col-2" style="margin-top: 80px;">
+                <div #playerScorehighlight class="circle">{{scoreObtainedPlayer}}</div>
+                <app-my-overlay [connectedTo]="playerScorehighlight" text="Displays the score obtained by the Player." id="8"></app-my-overlay>
+
+
+                <div>
+                    <p class="DealerWord">Player</p>
+                </div>
+
+            </div>
+            <div class="row col-5 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[0]">
+                    <img #playerHighlight [src]="card">
+                    <app-my-overlay [connectedTo]="playerHighlight" text="This is the player Deck." id="9"></app-my-overlay>
+
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: -170px; margin-left: 15px;">
+            <div class="col-4">
+
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
+
+            </div>
+            <div class="row col-5 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[1]">
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: -170px; margin-left: 35px;">
+            <div class="col-4">
+
+            </div>
+            <div class="col-1" style="margin-top: 80px;">
+
+            </div>
+            <div class="row col-5 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[2]">
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
         </div>
     </div>
 
-    <div class="row col-10 secondRow" *ngIf="totalCardsofPlayer > 10">
-        <div class="col-1" *ngFor="let card of player[1]">
-            <img [src]="card">
+
+    <div id="mobile1">
+        <div class="row">
+            <div class="col-4">
+                <button #adviceButton class="advice" (click)="advice()">
+                <mat-icon>help</mat-icon> ADVICE</button>
+                <app-my-overlay [connectedTo]="adviceButton" text="Use this button to get an advice in the middle of the game. " id="1"></app-my-overlay>
+            </div>
+            <div class="col-4">
+                <button #adviceButton class="advice">
+                    <mat-icon>score</mat-icon> SCORE</button>
+                <!-- <app-my-overlay [connectedTo]="adviceButton" text="Use this button to get an advice in the middle of the game. " id="1"></app-my-overlay> -->
+
+            </div>
+
+            <div class="col-4">
+                <button #helpButton class="help" (click)="help()">
+                <mat-icon>info</mat-icon> HELP</button>
+                <app-my-overlay [connectedTo]="helpButton" text="Use this button to get help or to read the rules in the middle of the game. " id="2"></app-my-overlay>
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-2">
+
+
+
+
+            </div>
+            <div class="col-2" style="margin-top: 80px;">
+                <div #dealerScore class="circle">{{scoreObtainedDealer}}</div>
+                <app-my-overlay [connectedTo]="dealerScore" text="Displays the score obtained by the Dealer." id="3"></app-my-overlay>
+
+                <div>
+                    <p class="DealerWord">Dealer</p>
+                </div>
+
+            </div>
+            <div class="row col-3 dealerRow">
+                <div class="col-1" *ngFor="let card of dealer[0]">
+                    <img #dealerHighlight [src]="card">
+                    <app-my-overlay [connectedTo]="dealerHighlight" text="This is the Dealer Deck." id="4"></app-my-overlay>
+
+                </div>
+            </div>
+            <div class="col-5">
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-1">
+
+            </div>
+            <div class="col-3">
+                <button #hitButton (click)="addCard()" mat-raised-button style="background-color: #32ba3e; color: white; height: 50px; width: 100px; margin-top: 20px; font-size: 30px;">
+                Hit
+                 </button>
+                <app-my-overlay [connectedTo]="hitButton" text="Press this button to draw a card." id="5"></app-my-overlay>
+
+
+            </div>
+            <div class=" outer col-3">
+                <div #countDownHighlight class="coin">
+                    <countdown style="font-weight: bold; color: white; font-weight: bold; margin-top: 20px; font-size: 30px;" [config]="{leftTime: timeForTotalGame}" (event)="totalTimeEvent($event)"></countdown>
+                    <!-- <p style="color: white; font-weight: bold; margin-top: 20px; font-size: 30px;">21</p> -->
+                </div>
+                <app-my-overlay [connectedTo]="countDownHighlight" text="The time left to finish the game." id="6"></app-my-overlay>
+
+
+            </div>
+            <div class="col-3">
+                <button #standButton mat-raised-button style="background-color: #32ba3e; color: white; height: 50px;  margin-top: 20px; font-size: 30px;">
+                Stand
+                 </button>
+                <app-my-overlay [connectedTo]="standButton" text="Press this button to finish playing." id="7"></app-my-overlay>
+
+
+            </div>
+            <div class="col-2">
+
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-2">
+
+            </div>
+            <div class="col-2" style="margin-top: 80px;">
+                <div #playerScorehighlight class="circle">{{scoreObtainedPlayer}}</div>
+                <app-my-overlay [connectedTo]="playerScorehighlight" text="Displays the score obtained by the Player." id="8"></app-my-overlay>
+
+
+                <div>
+                    <p class="DealerWord">Player</p>
+                </div>
+
+            </div>
+            <div class="row col-6 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[0]">
+                    <img #playerHighlight [src]="card">
+                    <app-my-overlay [connectedTo]="playerHighlight" text="This is the player Deck." id="9"></app-my-overlay>
+
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: -170px; margin-left: 10px; ">
+            <div class="col-2">
+
+            </div>
+            <div class="col-2" style="margin-top: 80px;">
+
+            </div>
+            <div class="row col-6 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[1]">
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-1">
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: -170px; margin-left: 35px;">
+            <div class="col-2">
+
+            </div>
+            <div class="col-2" style="margin-top: 80px;">
+
+            </div>
+            <div class="row col-6 ">
+                <div class="col-1 playerRow" *ngFor="let card of player[2]">
+                    <img [src]="card">
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
         </div>
     </div>
-    <div class="row col-10 thirdRow" *ngIf="totalCardsofPlayer > 20">
-        <div class="col-1" *ngFor="let card of player[2]">
-            <img [src]="card">
-        </div>
-    </div> -->
 
 </div>
